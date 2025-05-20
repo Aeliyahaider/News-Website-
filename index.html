@@ -6,25 +6,311 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>News App</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="script.js" defer></script>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        nav {
+            background-color: #222;
+            color: rgb(255, 255, 255);
+            padding: 10px 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            color: #3395fd;
+            margin: auto;
+            padding: 0 20px;
+        }
+
+        .flex {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .nav-links ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+            padding: 0;
+            margin: 0;
+        }
+
+        .main-nav a {
+            font-weight: bold;
+            color: #3395fd;
+            text-decoration: none;
+            padding: 10px;
+            transition: color 0.3s;
+}
+
+/* On hover */
+        .main-nav a:hover {
+           color: #007bff;
+}
+
+        .hover-link {
+            cursor: pointer;
+        }
+
+        .search-bar input {
+            padding: 5px;
+            margin-right: 10px;
+        }
+
+        .search-button {
+            padding: 6px 10px;
+            cursor: pointer;
+        }
+
+       
+        .hero {
+            background-image: url(PAKISTAN.jpg); 
+            background-size: cover;
+            background-position: center;
+            height: 400px;
+            position: relative;
+            color: #3395fd;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            overlay: color black;
+        }
+
+        .hero h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .hero-buttons button {
+            padding: 12px 25px;
+            font-size: 16px;
+            border: none;
+            background-color: #ff4d4d;
+            color: white;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: background 0.3s;
+        }
+
+        .hero-buttons button:hover {
+            background-color: #cc0000;
+        }
+
+        
+        .cards-container {
+            flex-wrap: wrap;
+            gap: 20px;
+            margin: 30px auto;
+            justify-content: center;
+        }
+
+        .card {
+            width: 300px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            overflow: hidden;
+            background: #fff;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        .card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 15px;
+        }
+
+    
+
+.featured-section {
+    margin: 60px auto;
+}
+
+.section-title {
+    font-size: 26px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.section-title::after {
+    content: "";
+    display: block;
+    width: 80px;
+    height: 4px;
+    background-color: #c80000;
+    margin-top: 5px;
+}
+
+.featured-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
+}
+
+.featured-card {
+    background: #fff;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    padding: 15px;
+    border-radius: 8px;
+    position: relative;
+    transition: 0.3s;
+}
+
+.featured-card:hover {
+    transform: translateY(-5px);
+}
+
+.featured-card img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 6px;
+}
+
+.featured-card h3 {
+    font-size: 16px;
+    margin: 12px 0;
+    line-height: 1.4;
+}
+
+.meta {
+    font-size: 12px;
+    color: #555;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: #d00;
+    color: #fff;
+    padding: 4px 10px;
+    font-size: 11px;
+    font-weight: bold;
+    border-radius: 3px;
+}
+
+.badge-group {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    display: flex;
+    gap: 5px;
+}
+
+.badge.blue {
+    background-color: #007bff;
+}
+
+.badge.red {
+    background-color: #dc3545;
+}
+
+.site-footer {
+  background-color: #1c1c1c;
+  color: #e0e0e0;
+  padding: 40px 20px 10px;
+  font-family: sans-serif;
+}
+
+.footer-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.footer-col h2.logo {
+  font-size: 22px;
+  color: #fff;
+}
+
+.footer-col h3 {
+  font-size: 16px;
+  margin-bottom: 10px;
+  color: #fff;
+}
+
+.footer-col p, 
+.footer-col li, 
+.footer-col a {
+  font-size: 14px;
+  line-height: 1.7;
+  color: #ccc;
+  text-decoration: none;
+}
+
+.footer-col ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-col a:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+
+.socials a img {
+  width: 20px;
+  margin-right: 10px;
+  filter: brightness(0.8);
+  transition: 0.3s ease;
+}
+
+.socials a img:hover {
+  filter: brightness(1);
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 30px;
+  padding-top: 15px;
+  border-top: 1px solid #333;
+  font-size: 13px;
+  color: #999;
+}
+
+    </style>
+
+
 </head>
 
 <body>
     <nav>
         <div class="main-nav container flex">
             <a href="" class="company-logo">
-                <img src="./images/logo.png" alt="logo">
+                <img src="logp.png" alt="logo" height="40">
             </a>
+
             <div class="nav-links">
                 <ul class="flex">
-                    <li class="hover-link nav-item" id="cricket" onClick="onNavItemClick('cricket')">Cricket</li>
-                    <li class="hover-link nav-item" id="india" onClick="onNavItemClick('india')">India</li>
-                    <li class="hover-link nav-item" id="technology" onClick="onNavItemClick('technology')">Technology
-                    </li>
-                    <li class="hover-link nav-item" id="politics" onClick="onNavItemClick('politics')">Politics</li>
-
+                    <li><a href="https://www.dawn.com/">PAKISTAN</a></li>
+                    <li><a href="https://www.dawn.com/">GILGIT BALTISTAN</a></li>
+                    <li><a href="https://www.dawn.com/">POLETICS</a></li>
+                    <li><a href="https://www.dawn.com/">ABOUT US</a></li>
+                    <li><a href="https://www.dawn.com/">CONTACT US</a></li>
                 </ul>
             </div>
+
             <div class="search-bar flex">
                 <input type="text" class="news-input" id="search-text" placeholder="e.g. Science">
                 <button class="search-button" id="search-button">Search</button>
@@ -32,29 +318,148 @@
         </div>
     </nav>
 
-
-    <main>
-        <div class="cards-container container flex" id="cardscontainer">
-
-
-
+    
+    <section class="hero">
+        <h1>Welcome to Daily News Portal</h1>
+        <div class="hero-buttons">
+            <button>Latest News</button>
+            <button>Top Headlines</button>
         </div>
-    </main>
+    </section>
+
+  
 
     <template id="template-news-card">
         <div class="card">
             <div class="card-header">
-                <img src="https://via.placeholder.com/400x200" alt="" id="news-img">
+                <img src="NewsWebsite.png" alt="" id="news-img">
             </div>
             <div class="card-content">
                 <h3 id="news-title">This is the Title</h3>
                 <h6 class="news-source" id="news-source">constGenius 02/02/2024</h6>
-                <p class="news-desc" id="news-desc">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rem
-                    incidunt ratione, dolore beatae quaerat voluptatum autem fugit voluptas minima eligendi facere
-                    tenetur cumque. Dolorem porro, fugiat distinctio a accusamus cum!</p>
+                <p class="news-desc" id="news-desc">
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                </p>
             </div>
         </div>
     </template>
+    
+
+    <section class="featured-section container">
+    <h2 class="section-title">Featured Story</h2>
+    <div class="featured-grid">
+        <!-- Card 1 -->
+        <div class="featured-card">
+            <img src="image1.jpg" alt="Story Image">
+            <span class="badge red">Top Stories</span>
+            <h3>Venezuelans Face Deportation as Protections End</h3>
+            <div class="meta">
+                <span>👤 D Boyer – Politics and Government</span>
+                <span>🕒 1 day ago</span>
+                <span>💬 0 &nbsp; 👁 29</span>
+            </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="featured-card">
+            <img src="image2.jpg" alt="Story Image">
+            <div class="badge-group">
+                <span class="badge blue">Biography</span>
+                <span class="badge red">Featured</span>
+            </div>
+            <h3>Anya Taylor Joy: The Captivating Rise of a Modern Screen Icon</h3>
+            <div class="meta">
+                <span>👤 Ann Zamora – Entertainment - Movies</span>
+                <span>🕒 1 day ago</span>
+                <span>💬 0 &nbsp; 👁 19</span>
+            </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="featured-card">
+            <img src="image3.jpg" alt="Story Image">
+            <span class="badge red">Trending</span>
+            <h3>Former President Joe Biden’s Cancer Diagnosis</h3>
+            <div class="meta">
+                <span>👤 Katie Jane – Medical & Health</span>
+                <span>🕒 2 days ago</span>
+                <span>💬 0 &nbsp; 👁 27</span>
+            </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="featured-card">
+            <img src="image4.jpg" alt="Story Image">
+            <span class="badge red">Featured</span>
+            <h3>Devastating Missouri Tornado: Latest Updates</h3>
+            <div class="meta">
+                <span>👤 Jerry Henricks – Environmental, Weather</span>
+                <span>🕒 3 days ago</span>
+                <span>💬 0 &nbsp; 👁 40</span>
+            </div>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="featured-card">
+            <img src="image1.jpg" alt="Story Image">
+            <span class="badge red">Sports</span>
+            <h3>New York Knicks: Your Source for Team Updates</h3>
+            <div class="meta">
+                <span>👤 Coach Dale J – Sports</span>
+                <span>🕒 3 days ago</span>
+                <span>💬 0 &nbsp; 👁 40</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <footer class="site-footer">
+  <div class="footer-container">
+    <div class="footer-col">
+      <h2 class="logo">NewsToday</h2>
+      <p>Your trusted source for the latest news, trends, and global updates.</p>
+    </div>
+
+    <div class="footer-col">
+      <h3>Quick Links</h3>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Politics</a></li>
+        <li><a href="#">Technology</a></li>
+        <li><a href="#">World News</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h3>Categories</h3>
+      <ul>
+        <li><a href="#">Top Stories</a></li>
+        <li><a href="#">Trending</a></li>
+        <li><a href="#">Interviews</a></li>
+        <li><a href="#">Lifestyle</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h3>Contact</h3>
+      <ul>
+        <li>Email: contact@newstoday.com</li>
+        <li>Phone: +92 34 088096 84</li>
+        <li>Address: Karachi North, PAKISTAN</li>
+      </ul>
+      <div class="socials">
+        <a href="#"><img src="facebook.png" alt="Facebook" /></a>
+        <a href="#"><img src="twitter.png" alt="Twitter" /></a>
+        <a href="#"><img src="instagram.png" alt="Instagram" /></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>© 2025 NewsToday. All rights reserved.</p>
+  </div>
+</footer>
+    
 
 
 </body>
